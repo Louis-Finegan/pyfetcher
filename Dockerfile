@@ -5,7 +5,7 @@ FROM python:3.10 AS builder
 WORKDIR /pyfetcher
 
 # Copy the Python script into the container
-COPY main.py /pyfetcher/
+COPY . /pyfetcher/
 
 # Install required dependencies
 RUN pip install --no-cache-dir -r requirements.txt
