@@ -1,4 +1,1 @@
-tkinter
-shutil
-os
 pyinstaller
