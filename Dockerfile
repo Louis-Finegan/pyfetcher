@@ -1,5 +1,5 @@
 # Use a Windows base image
-FROM python:3.9-slim AS builder
+FROM python:3.9 AS builder
 
 # Set working directory
 WORKDIR /app
@@ -13,6 +13,8 @@ RUN apt-get update && \
 # Copy the Python script into the container
 COPY main.py /app/
 
+RUN pip install --upgrade pip
+
 # Install necessary dependencies
 RUN pip install --no-cache-dir pyinstaller
 
@@ -23,7 +25,7 @@ RUN pyinstaller --onefile --name pyfetcher.exe main.py
 RUN zip pyfetcher-v1.0.zip dist/pyfetcher.exe
 
 # Set up a simple web server to serve the zip file
-FROM python:3.9-slim AS final
+FROM python:3.9 AS final
 
 # Set working directory
 WORKDIR /app
