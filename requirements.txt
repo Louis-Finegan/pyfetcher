@@ -1,0 +1,4 @@
+tkinter
+shutil
+os
+pyinstaller
